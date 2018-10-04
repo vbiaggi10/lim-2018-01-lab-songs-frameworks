@@ -1,34 +1,50 @@
 import React, { Component } from 'react';
 import './App.css';
 import Artists from './components/Artists';
+import Data from './data/artist.json';
+import { Row } from 'react-materialize';
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: []
+    }
+  }
 
   componentDidMount() {
-    fetch("https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/albums", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${'BQA6Htuhtm3H3AKcJCzL6ltaQFT73js7T4beok8Y1QUlM9BgCPoCdjlL2a3LjoftpRJIraMyP8rpmP95fIqbONDRdidQlxB-JdCdxCMhOP5PQWbJaboYVlgOfB6038fzSV4hH1Fr6AzjfRei'}`
-      }
-    })
-      .then(response => response.json())
-      .then(({ beats }) => {
-        console.log(beats)
-      // beats.forEach((beat, index) => {
-      //   console.log(`Beat ${index} starts at ${beat.start}`);
-      // })
-    })
+    let { data } = this.state;
+    Data.forEach(artist => {
+      fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artist.name}&api_key=657cef2918119afec7337a5c8080f934&format=json`)
+        .then(response => response.json())
+        .then(artistsData => {
+          Object.values(artistsData).forEach(artistData => {
+            data.push({
+              key: artist.key,
+              name: artist.name,
+              photo: artist.photo,
+              artistData: artistData.track
+            })
+            this.setState({ data });
+          })
+        })
+    });
+
   }
 
   render() {
     return (
-      <div className="App">
+      <Row className="App">
         <h1>Ranking songs</h1>
-        <Artists></Artists>
-      </div>
+        {
+          this.state.data.map(artist =>{
+            return (<Artists name={artist.name} photo={artist.photo} key={artist.key} artistData={artist.artistData}></Artists>)
+          })
+          // Data.map(artist => {
+          //   return (<Artists name={artist.name} photo={artist.photo} key={artist.key}></Artists>)
+          // })
+        }
+      </Row>
     );
   }
 }

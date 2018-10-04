@@ -1,19 +1,33 @@
 import React, { Component } from 'react';
-import {Carousel} from 'react-materialize'
+import PropTypes from 'prop-types';
+import { Col, Card, CardTitle, Icon } from 'react-materialize';
 import '../App.css';
 
 class Artists extends Component {
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    photo: PropTypes.string.isRequired,
+    artistData: PropTypes.array.isRequired
+  };
   render() {
+    const { photo, name, artistData } = this.props;
     return (
-      <div className="container">
-        <Carousel images={[
-          'https://lorempixel.com/250/250/nature/1',
-          'https://lorempixel.com/250/250/nature/2',
-          'https://lorempixel.com/250/250/nature/3',
-          'https://lorempixel.com/250/250/nature/4',
-          'https://lorempixel.com/250/250/nature/5'
-        ]} />
-      </div>
+      <Col s={6} className="container">
+        <Card header={<CardTitle reveal image={photo} waves='light' />}
+          title={name}
+          reveal={
+            artistData.map(element => {
+              return (
+                <Col s={12} className="artist">
+                  <Col s={5}>{element.name}</Col>
+                  <Col s={2}><Icon className="icon-up">thumb_up_alt</Icon></Col>
+                  <Col s={2}><Icon className="icon-down">thumb_down_alt</Icon></Col>
+                  <Col s={3}>{element.playcount}</Col>
+                </Col>)
+            })
+          }>
+        </Card>
+      </Col>
     );
   }
 }

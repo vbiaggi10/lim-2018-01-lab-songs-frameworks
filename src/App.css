@@ -22,6 +22,26 @@
   color: #61dafb;
 }
 
+.card .card-reveal {
+  text-align: left;
+}
+
+.artist {
+  margin: .5rem auto;
+}
+
+.artist i{
+  cursor: pointer;
+}
+
+.artist .icon-up{
+  color: #356ad4;
+}
+
+.artist .icon-down{
+  color: #e94c0e;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
