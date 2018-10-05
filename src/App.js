@@ -40,9 +40,6 @@ class App extends Component {
           this.state.data.map(artist =>{
             return (<Artists name={artist.name} photo={artist.photo} key={artist.key} artistData={artist.artistData}></Artists>)
           })
-          // Data.map(artist => {
-          //   return (<Artists name={artist.name} photo={artist.photo} key={artist.key}></Artists>)
-          // })
         }
       </Row>
     );

@@ -47,7 +47,7 @@ class CountLikes extends Component {
   }
 
   render() {
-    const { name } = this.props;
+    const { name, likes } = this.props;
     const parseLikes = parseInt(this.state.countLikes);
     // this.updateInfo.bind(this)
     // this.setState({countLikes: parseLikes + this.state.count });
@@ -56,7 +56,7 @@ class CountLikes extends Component {
         <Col s={5}>{name}</Col>
         <Col s={2}><span onClick={this.countLikes.bind(this)}><Icon className="icon-up">thumb_up_alt</Icon></span></Col>
         <Col s={2}><span onClick={this.countDislikes.bind(this)}><Icon className="icon-down">thumb_down_alt</Icon></span></Col>
-        <Col s={3}>{parseLikes}</Col>
+        <Col s={3}>{likes}</Col>
       </Col>)
   }
 }

@@ -14,7 +14,8 @@ class Artists extends Component {
   constructor() {
     super();
     this.state = {
-      newData: []
+      newData: [],
+      orderDir: 'DESC'
     }
   }
 
@@ -24,7 +25,7 @@ class Artists extends Component {
       name: name,
       countLikes: countLikes
     })
-    this.setState({ newData });
+    this.setState({ newData: newData });
   }
 
   sortData = (data, orderDirection) => {
@@ -41,21 +42,35 @@ class Artists extends Component {
 
   }
 
-  render() {
-    // console.log(this.state.newData)
-    const { photo, name, artistData } = this.props;
+  orderDir() {
+    if (this.state.orderDir === 'ASC') {
+      this.setState({ orderDir: 'DESC' });
+    } else {
+      this.setState({ orderDir: 'ASC' });
+    }
+  }
 
+  paintArtist = (artistData) => {
+    return (
+      <div>
+        <button onClick={this.orderDir.bind(this)}>sort</button>
+        {artistData.map(element => {
+          return (
+            <CountLikes name={element.name} likes={element.playcount} updateInfo={this.updateInfo.bind(this)} />
+          )
+        })}
+      </div>
+    )
+  }
+
+  render() {
+    let { photo, name, artistData } = this.props;
+    artistData = this.sortData(artistData, this.state.orderDir);
     return (
       <Col s={4} className="container">
         <Card header={<CardTitle reveal image={photo} waves='light' />}
           title={name}
-          reveal={
-            this.sortData(artistData, 'ASC').map(element => {
-              return (
-                <CountLikes name={element.name} likes={element.playcount} updateInfo={this.updateInfo.bind(this)} />
-              )
-            })
-          }>
+          reveal={this.paintArtist(artistData)}>
         </Card>
       </Col>
     );
