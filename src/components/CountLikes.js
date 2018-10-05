@@ -13,9 +13,7 @@ class CountLikes extends Component {
     this.myRefUp = React.createRef();
     this.myRefDown = React.createRef();
     this.state = {
-      countLikes: '',
-      count: 0,
-      newPlus: 0
+      countLikes: ''
     }
   }
 
@@ -25,30 +23,40 @@ class CountLikes extends Component {
   }
 
   countLikes(e) {
-    this.setState({ count: this.state.count + 1 })
+    const { name } = this.props;
+    const parseLikes = parseInt(this.state.countLikes);
+    this.setState({ countLikes: parseLikes + 1 })
+    this.props.updateInfo(name, parseLikes)
   }
 
   countDislikes(e) {
+    const { name } = this.props;
     const parseLikes = parseInt(this.state.countLikes);
-    if (parseLikes > 0) {
-      this.setState({ count: this.state.count - 1000 })
-    } else {
-      this.setState({ countLikes: 0 })
+    if (parseLikes >= 0) {
+      this.setState({ countLikes: parseLikes - 1 });
+    }else{
+      this.setState({ countLikes: 0 });
     }
-    // this.setState({countLikes: parseLikes + this.state.count });
+    this.props.updateInfo(name, parseLikes)
+  }
 
+  updateInfo(){
+    const { name } = this.props;
+    const parseLikes = parseInt(this.state.countLikes);
+    this.props.updateInfo(name, parseLikes)
   }
 
   render() {
     const { name } = this.props;
     const parseLikes = parseInt(this.state.countLikes);
+    // this.updateInfo.bind(this)
     // this.setState({countLikes: parseLikes + this.state.count });
     return (
       <Col s={12} className="artist" key={name}>
         <Col s={5}>{name}</Col>
         <Col s={2}><span onClick={this.countLikes.bind(this)}><Icon className="icon-up">thumb_up_alt</Icon></span></Col>
         <Col s={2}><span onClick={this.countDislikes.bind(this)}><Icon className="icon-down">thumb_down_alt</Icon></span></Col>
-        <Col s={3}>{parseLikes + this.state.count}</Col>
+        <Col s={3}>{parseLikes}</Col>
       </Col>)
   }
 }
