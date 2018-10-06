@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/lim-2018-01-lab-songs-frameworks/static/css/main.5083cb0d.chunk.css"
   },
   {
-    "revision": "208be365011b1592355a808965e53bae",
+    "revision": "c5d31c6b94c402853c5093da137dfffc",
     "url": "/lim-2018-01-lab-songs-frameworks/index.html"
   }
 ];
