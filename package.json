@@ -2,7 +2,7 @@
   "name": "react2",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://vbiaggi10.gi thub.io/lim-2018-01-lab-songs-frameworks/",
+  "homepage": "https://vbiaggi10.github.io/lim-2018-01-lab-songs-frameworks/",
   "dependencies": {
     "create-react-app": "^2.0.3",
     "gh-pages": "^2.0.1",
