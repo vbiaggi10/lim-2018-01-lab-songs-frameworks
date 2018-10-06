@@ -15,7 +15,7 @@ class App extends Component {
   componentDidMount() {
     let { data } = this.state;
     Data.forEach(artist => {
-      fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artist.name}&api_key=657cef2918119afec7337a5c8080f934&format=json`)
+      fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artist.name}&api_key=657cef2918119afec7337a5c8080f934&format=json`)
         .then(response => response.json())
         .then(artistsData => {
           Object.values(artistsData).forEach(artistData => {
