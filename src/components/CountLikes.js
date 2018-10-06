@@ -6,7 +6,7 @@ import '../App.css';
 class CountLikes extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
-    likes: PropTypes.string.isRequired
+    likes: PropTypes.number.isRequired
   };
   constructor() {
     super();
@@ -40,23 +40,14 @@ class CountLikes extends Component {
     this.props.updateInfo(name, parseLikes)
   }
 
-  updateInfo(){
-    const { name } = this.props;
-    const parseLikes = parseInt(this.state.countLikes);
-    this.props.updateInfo(name, parseLikes)
-  }
-
   render() {
-    const { name, likes } = this.props;
-    const parseLikes = parseInt(this.state.countLikes);
-    // this.updateInfo.bind(this)
-    // this.setState({countLikes: parseLikes + this.state.count });
+    const { name } = this.props;
     return (
       <Col s={12} className="artist" key={name}>
         <Col s={5}>{name}</Col>
         <Col s={2}><span onClick={this.countLikes.bind(this)}><Icon className="icon-up">thumb_up_alt</Icon></span></Col>
         <Col s={2}><span onClick={this.countDislikes.bind(this)}><Icon className="icon-down">thumb_down_alt</Icon></span></Col>
-        <Col s={3}>{likes}</Col>
+        <Col s={3}>{this.state.countLikes}</Col>
       </Col>)
   }
 }
