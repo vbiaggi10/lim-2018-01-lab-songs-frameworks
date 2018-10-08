@@ -1,0 +1,32 @@
+[
+  {
+      "key": "A0001",
+      "name": "Red Hot Chili Peppers",
+      "photo": "https://lastfm-img2.akamaized.net/i/u/300x300/ff9c5cb557a7489f8ef032b993638d18.png"
+  },
+  {
+      "key": "A0002",
+      "name": "Aerosmith",
+      "photo": "https://lastfm-img2.akamaized.net/i/u/300x300/3dab7b013c3346af8a49b08b4688ff8a.png"
+  },
+  {
+      "key": "A0003",
+      "name": "Bon Jovi",
+      "photo": "https://lastfm-img2.akamaized.net/i/u/300x300/68cffd33dc71e0885d27d3fe917fb70c.png"
+  },
+  {
+      "key": "A0004",
+      "name": "Ed Sheeran",
+      "photo": "https://lastfm-img2.akamaized.net/i/u/300x300/fa36962445080a3357cd1585fd2cb474.png"
+  },
+  {
+      "key": "A0005",
+      "name": "Bruno Mars",
+      "photo": "https://lastfm-img2.akamaized.net/i/u/300x300/9e51e895e31073fe89130721da1f5ac9.png"
+  },
+  {
+      "key": "A0006",
+      "name": "Nirvana",
+      "photo": "https://lastfm-img2.akamaized.net/i/u/300x300/6ff086c6ec0a8d50882bd4aac46cd3d2.png"
+  }
+]

@@ -1,10 +1,14 @@
-import React, { Component } from 'react';
-import './App.css';
-import Artists from './components/Artists';
-import Data from './data/artist.json';
-import { Row } from 'react-materialize';
+import React from 'react';
+import { ScrollView, StyleSheet } from 'react-native';
+import RankingSlider from '../components/RankingScreen/RankingSlider';
+import Data from '../data/artist.json';
+// import { ExpoLinksView } from '@expo/samples';
 
-class App extends Component {
+export default class LinksScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Ranking',
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -29,21 +33,22 @@ class App extends Component {
           })
         })
     });
-
   }
 
   render() {
     return (
-      <Row className="App">
-        <h1>Ranking songs</h1>
-        {
-          this.state.data.map(artist =>{
-            return (<Artists name={artist.name} photo={artist.photo} key={artist.key} artistData={artist.artistData}></Artists>)
-          })
-        }
-      </Row>
+      <ScrollView style={styles.container}>
+        <RankingSlider data={this.state.data} />
+        {/* <ExpoLinksView /> */}
+      </ScrollView>
     );
   }
 }
 
-export default App;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 15,
+    backgroundColor: '#fff',
+  },
+});
