@@ -1,10 +1,11 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet, ActivityIndicator, View } from 'react-native';
 import RankingSlider from '../components/RankingScreen/RankingSlider';
+import Ranking from '../components/RankingScreen/Ranking';
 import Data from '../data/artist.json';
 // import { ExpoLinksView } from '@expo/samples';
 
-export default class LinksScreen extends React.Component {
+export default class RankingScreen extends React.Component {
   static navigationOptions = {
     title: 'Ranking',
   };
@@ -12,7 +13,8 @@ export default class LinksScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [], 
+      isLoading: true
     }
   }
 
@@ -29,17 +31,44 @@ export default class LinksScreen extends React.Component {
               photo: artist.photo,
               artistData: artistData.track
             })
-            this.setState({ data });
+            this.setState({
+              isLoading: false,
+              data: data,
+            }, () => { });
           })
         })
     });
   }
 
+  ranking() {
+    return this.state.data.map(artist =>{
+      return (<Ranking name={artist.name} photo={artist.photo} key={artist.key} artistData={artist.artistData} />)
+    })
+  }
+
+  // ranking() {
+  //   return this.state.data.map(artist => {
+  //     return (
+  //       <View key={artist.key}>
+  //         <Text>{artist.name}</Text>
+  //         <Image style={{ width: 250, height: 250 }} source={{ uri: artist.photo }} />
+  //       </View>
+  //     )
+  //   })
+  // }
+
   render() {
+    if (this.state.isLoading) {
+      return (
+        <View style={{ flex: 1, padding: 20 }}>
+          <ActivityIndicator />
+        </View>
+      )
+    }
     return (
       <ScrollView style={styles.container}>
-        <RankingSlider data={this.state.data} />
-        {/* <ExpoLinksView /> */}
+        {/* {this.ranking()} */}
+        <RankingSlider/>
       </ScrollView>
     );
   }
