@@ -1,5 +1,15 @@
 # Lab songs con un framework
 
+## Aplicación web
+
+* Entra al aplicativo web aquí https://vbiaggi10.github.io/lim-2018-01-lab-songs-frameworks/
+
+## Aplicación mobile
+
+* Descargar _expo_ en _appstore_ o _playstore_.
+* Entra a este link https://expo.io/@vbiaggi10/RankingSongs y escanea el código QR.
+* ¡Listo!
+
 ## Objetivo
 
 Programar un ranking de canciones por artista elegido.
