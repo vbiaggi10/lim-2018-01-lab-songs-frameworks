@@ -2,31 +2,67 @@
   {
       "key": "A0001",
       "name": "Red Hot Chili Peppers",
-      "photo": "https://lastfm-img2.akamaized.net/i/u/300x300/ff9c5cb557a7489f8ef032b993638d18.png"
+      "photo": "https://lastfm-img2.akamaized.net/i/u/300x300/ff9c5cb557a7489f8ef032b993638d18.png",
+      "information": "Banda de rock alternativo y funk rock estadounidense formada en 1983 en Los Ángeles, California."
   },
   {
       "key": "A0002",
       "name": "Aerosmith",
-      "photo": "https://lastfm-img2.akamaized.net/i/u/300x300/3dab7b013c3346af8a49b08b4688ff8a.png"
+      "photo": "https://lastfm-img2.akamaized.net/i/u/300x300/3dab7b013c3346af8a49b08b4688ff8a.png",
+      "information": "Banda estadounidense de hard rock."
   },
   {
       "key": "A0003",
       "name": "Bon Jovi",
-      "photo": "https://lastfm-img2.akamaized.net/i/u/300x300/68cffd33dc71e0885d27d3fe917fb70c.png"
+      "photo": "https://lastfm-img2.akamaized.net/i/u/300x300/68cffd33dc71e0885d27d3fe917fb70c.png",
+      "information": "Banda de rock formada en Nueva Jersey, Estados Unidos, en 1983, por su líder y vocalista Jon Bon Jovi."
   },
   {
       "key": "A0004",
       "name": "Ed Sheeran",
-      "photo": "https://lastfm-img2.akamaized.net/i/u/300x300/fa36962445080a3357cd1585fd2cb474.png"
+      "photo": "https://lastfm-img2.akamaized.net/i/u/300x300/fa36962445080a3357cd1585fd2cb474.png",
+      "information": "Cantante, compositor y guitarrista británico."
   },
   {
       "key": "A0005",
       "name": "Bruno Mars",
-      "photo": "https://lastfm-img2.akamaized.net/i/u/300x300/9e51e895e31073fe89130721da1f5ac9.png"
+      "photo": "https://lastfm-img2.akamaized.net/i/u/300x300/9e51e895e31073fe89130721da1f5ac9.png",
+      "information": "Cantante, compositor, productor musical y coreógrafo estadounidense."
   },
   {
       "key": "A0006",
       "name": "Nirvana",
-      "photo": "https://lastfm-img2.akamaized.net/i/u/300x300/6ff086c6ec0a8d50882bd4aac46cd3d2.png"
+      "photo": "https://lastfm-img2.akamaized.net/i/u/300x300/6ff086c6ec0a8d50882bd4aac46cd3d2.png",
+      "information": "Banda de grunge estadounidense procedente de Aberdeen, Washington, Estados Unidos."
+  },
+  {
+      "key": "A0007",
+      "name": "System of a down",
+      "photo": "https://usercontent2.hubstatic.com/13781729_f520.jpg",
+      "information": "Es una banda de rock estadounidense de ascendencia armenia, formada en Los Ángeles, California, en el año 1994."
+  },
+  {
+      "key": "A0008",
+      "name": "Backstreet boys",
+      "photo": "https://www.chymfm.com/wp-content/uploads/sites/8/2016/10/backstreet-boys-1995-1024x576.jpg",
+      "information": "Boy band estadounidense formada en Orlando, Florida, en 1993."
+  },
+  {
+      "key": "A0009",
+      "name": "Soda Stereo",
+      "photo": "https://i.ytimg.com/vi/IibXYWSBpZw/hqdefault.jpg",
+      "information": "Banda de rock argentina, formada en Buenos Aires en el año 1982."
+  },
+  {
+      "key": "A0010",
+      "name": "Enanitos Verdes",
+      "photo": "https://i2.wp.com/latinbayarea.com/wordpress/wp-content/uploads/2017/05/enanitos-verdes-santa-cruz.png?resize=720%2C458",
+      "information": "Banda argentina de rock en español, formada en 1979 en Mendoza, Argentina."
+  },
+  {
+      "key": "A0011",
+      "name": "Arena Hash",
+      "photo": "https://pbs.twimg.com/media/C6H6-7JXEAEkCWZ.jpg",
+      "information": "Banda peruana de rock & pop formada en 1985."
   }
 ]

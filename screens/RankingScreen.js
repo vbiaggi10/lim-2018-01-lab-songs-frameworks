@@ -1,9 +1,8 @@
 import React from 'react';
-import { ScrollView, StyleSheet, ActivityIndicator, View } from 'react-native';
-import RankingSlider from '../components/RankingScreen/RankingSlider';
-import Ranking from '../components/RankingScreen/Ranking';
+import { ActivityIndicator, View } from 'react-native';
+import ArtistList from '../components/RankingScreen/ArtistList';
+import RankingList from '../components/RankingScreen/RankingList';
 import Data from '../data/artist.json';
-// import { ExpoLinksView } from '@expo/samples';
 
 export default class RankingScreen extends React.Component {
   static navigationOptions = {
@@ -14,12 +13,15 @@ export default class RankingScreen extends React.Component {
     super(props);
     this.state = {
       data: [], 
-      isLoading: true
+      isLoading: true,
+      statusRankingList: true,
+      getTracks: [],
+      artistName: ''
     }
   }
 
   componentDidMount() {
-    let { data } = this.state;
+    const { data } = this.state;
     Data.forEach(artist => {
       fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artist.name}&api_key=657cef2918119afec7337a5c8080f934&format=json`)
         .then(response => response.json())
@@ -29,6 +31,7 @@ export default class RankingScreen extends React.Component {
               key: artist.key,
               name: artist.name,
               photo: artist.photo,
+              information: artist.information,
               artistData: artistData.track
             })
             this.setState({
@@ -40,23 +43,6 @@ export default class RankingScreen extends React.Component {
     });
   }
 
-  ranking() {
-    return this.state.data.map(artist =>{
-      return (<Ranking name={artist.name} photo={artist.photo} key={artist.key} artistData={artist.artistData} />)
-    })
-  }
-
-  // ranking() {
-  //   return this.state.data.map(artist => {
-  //     return (
-  //       <View key={artist.key}>
-  //         <Text>{artist.name}</Text>
-  //         <Image style={{ width: 250, height: 250 }} source={{ uri: artist.photo }} />
-  //       </View>
-  //     )
-  //   })
-  // }
-
   render() {
     if (this.state.isLoading) {
       return (
@@ -65,19 +51,28 @@ export default class RankingScreen extends React.Component {
         </View>
       )
     }
-    return (
-      <ScrollView style={styles.container}>
-        {/* {this.ranking()} */}
-        <RankingSlider/>
-      </ScrollView>
-    );
+    if(this.state.statusRankingList){
+      return (
+          <ArtistList data={this.state.data} changeStatus={this._changeStatus} showArtistData={this._showArtistData}/>
+     
+      );
+    }else {
+      return(
+          <RankingList changeStatus={this._changeStatus} getTracks={this.state.getTracks} artistName={this.state.artistName}/>
+      )
+    }
+  }
+
+  _changeStatus = (status) => {
+    this.setState({
+      statusRankingList: status
+    });
+  }
+
+  _showArtistData = (artistData, artistName) => {
+    this.setState({
+      getTracks: artistData,
+      artistName: artistName
+    });
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 15,
-    backgroundColor: '#fff',
-  },
-});
