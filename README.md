@@ -1,18 +1,10 @@
 # Lab songs con un framework
 
-## Aplicación web
-
-* Entra al aplicativo web aquí https://vbiaggi10.github.io/lim-2018-01-lab-songs-frameworks/
-
-### Tecnologías
-
-* React JS
-
 ## Aplicación mobile
 
 ![DEMO](https://user-images.githubusercontent.com/36829304/48010726-24da7380-e0ec-11e8-80ef-36266d185afc.jpeg)
 
-* Descargar el [APK](https://drive.google.com/open?id=1NvzLrjwjsdOepFJvXc2iVd0vxrCwP3Kf "APK").
+* Descargar el [APK](https://drive.google.com/file/d/1NvzLrjwjsdOepFJvXc2iVd0vxrCwP3Kf/view?usp=sharing "APK").
 * Instálalo en tu celular.
 * ¡Listo!
 
@@ -21,6 +13,15 @@
 * React Native
 * Expo
 * React Native Base
+
+
+## Aplicación web
+
+* Entra al aplicativo web aquí https://vbiaggi10.github.io/lim-2018-01-lab-songs-frameworks/
+
+### Tecnologías
+
+* React JS
 
 ## Objetivo
 
